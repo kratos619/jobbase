@@ -2,6 +2,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\models\Category;
+use yii\helpers\ArrayList;
+
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Job */
@@ -10,9 +13,8 @@ use yii\widgets\ActiveForm;
 <div class="job-create">
 
     <?php $form = ActiveForm::begin(); ?>
-
-        <?= $form->field($jobs, 'category_id') ?>
-        <?= $form->field($jobs, 'user_id') ?>
+    <?= $form->errorSummary($jobs); ?>
+        <?= $form->field($jobs, 'category_id')->dropDownList(Category::find()->select(['name','id'])->indexBy('id')->column(),['prompt' => 'Select Category']) ?>
         <?= $form->field($jobs, 'title') ?>
         <?= $form->field($jobs, 'description') ?>
         <?= $form->field($jobs, 'type') ?>
@@ -23,7 +25,7 @@ use yii\widgets\ActiveForm;
         <?= $form->field($jobs, 'zip') ?>
         <?= $form->field($jobs, 'contact_email') ?>
         <?= $form->field($jobs, 'cantact_phone') ?>
-        <?= $form->field($jobs, 'is_published') ?>
+        <?= $form->field($jobs, 'is_published')->radioList(array('1' => 'yes','0' => 'no')) ?>
         
         <div class="form-group">
             <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>

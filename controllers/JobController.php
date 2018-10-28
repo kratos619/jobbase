@@ -36,7 +36,10 @@ class JobController extends \yii\web\Controller
     if ($jobs->load(Yii::$app->request->post())) {
         if ($jobs->validate()) {
             // form inputs are valid, do something here
+            // save to db
             $jobs->save();
+
+            //set flash message
             Yii::$app->getSession()->setFlash('success','Job Is Added');
             return $this->redirect('index.php?r=job');
         }

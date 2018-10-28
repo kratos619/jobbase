@@ -3,7 +3,6 @@
 namespace app\models;
 
 use Yii;
-
 /**
  * This is the model class for table "{{%tbl_jobs}}".
  *
@@ -39,7 +38,7 @@ class Job extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['category_id', 'user_id', 'title', 'description', 'type', 'requirments', 'salary_range', 'city', 'state', 'zip', 'contact_email', 'cantact_phone'], 'required'],
+            [['category_id', 'title', 'description', 'type', 'requirments', 'salary_range', 'city', 'state', 'zip', 'contact_email', 'cantact_phone'], 'required'],
             [['category_id', 'user_id', 'is_published'], 'integer'],
             [['description'], 'string'],
             [['create_date'], 'safe'],
