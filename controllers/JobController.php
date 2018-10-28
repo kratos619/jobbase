@@ -57,5 +57,10 @@ class JobController extends \yii\web\Controller
         return $this->render('edite');
     }
 
+    public function actionDetails($id){
+        $job = Job::find()->where(['id' => $id])->one();
+        return $this->render('details', ['job' => $job] );
+    }
+
 
 }
