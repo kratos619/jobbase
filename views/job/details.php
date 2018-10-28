@@ -6,7 +6,14 @@ use yii\widgets\LinkPager;
 
 
 
-    <h2 class="page-header"><?php echo $job->title ?></h2>
+    <h2 class="page-header"><?php echo $job->title ?>
+    <span class="pull-right">
+        <a class="btn btn-warning" href="index.php?r=job/edite&id=<?php echo $job->id ?>">Edit</a>
+        <a class="btn btn-danger" href="index.php?r=job/delete&id=<?php echo $job->id ?>">Delete</a>
+    </span>
+    
+    </h2> 
+    
     <?php if(!empty($job->description)): ?>
         <h4>Description :</h4>
         <p class="lead">
