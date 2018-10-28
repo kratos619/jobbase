@@ -42,6 +42,7 @@ AppAsset::register($this);
             ['label' => 'Categories', 'url' => ['/category/index']],
             ['label' => 'Jobs', 'url' => ['/job/index']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
+            ['label' => 'Register', 'url' => ['/user/register']]
             
         //     Yii::$app->user->isGuest ? (
         //         ['label' => 'Login', 'url' => ['/site/login']]
@@ -65,14 +66,17 @@ AppAsset::register($this);
             // ['label' => 'Jobs', 'url' => ['/jobs/index']],
             // ['label' => 'Contact', 'url' => ['/site/contact']],
             
+            
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
+                
             ) : (
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post')
                 . Html::submitButton(
                     'Logout (' . Yii::$app->user->identity->username . ')',
                     ['class' => 'btn btn-link logout']
+                    
                 )
                 . Html::endForm()
                 . '</li>'

@@ -1,9 +1,20 @@
 <?php
-/* @var $this yii\web\View */
-?>
-<h1>register/register</h1>
 
-<p>
-    You may change the content of this page by modifying
-    the file <code><?= __FILE__; ?></code>.
-</p>
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+
+/* @var $this yii\web\View */
+/* @var $model app\models\User */
+/* @var $form ActiveForm */
+?>
+<div class="user-register">
+
+    <?php $form = ActiveForm::begin(); ?>
+
+    
+        <div class="form-group">
+            <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
+        </div>
+    <?php ActiveForm::end(); ?>
+
+</div><!-- user-register -->
